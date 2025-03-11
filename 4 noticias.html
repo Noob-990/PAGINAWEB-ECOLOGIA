@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referencias sobre el Extractivismo</title>
+    <link rel="stylesheet" href="5 styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #5ce6da;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .noticias {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .buscador {
+            display: block;
+            margin: 0 auto 20px;
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .contenedor-referencias {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .tarjeta {
+            width: 320px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .tarjeta img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .tarjeta h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .tarjeta p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .tarjeta a {
+            display: block;
+            margin-top: 10px;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .tarjeta a:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            background: #5ce6da;
+            color: black;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="1 index.html">Inicio</a></li>
+                <li><a href="2 conceptos.html">Conceptos</a></li>
+                <li><a href="3 datos.html">Datos Curiosos</a></li>
+                <li><a href="4 noticias.html">Referencias</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="noticias">
+        <h1>Fuentes y Referencias sobre el Extractivismo</h1>
+
+        <input type="text" id="buscador" class="buscador" placeholder="🔎 Buscar referencia...">
+
+        <div class="contenedor-referencias" id="referencias-container">
+            <!-- Aquí se insertarán las tarjetas dinámicamente con JavaScript -->
+        </div>
+    </section>
+
+    <script>
+        const referencias = [
+            { 
+                nombre: "Greenpeace", 
+                imagen: "IMG/pag4img1.png", 
+                url: "https://www.greenpeace.org",
+                descripcion: "Organización ambientalista internacional dedicada a la protección del medio ambiente."
+            },
+            { 
+                nombre: "WWF", 
+                imagen: "IMG/pag4img2.png", 
+                url: "https://www.wwf.org",
+                descripcion: "Fondo Mundial para la Naturaleza, trabaja en la conservación de la biodiversidad."
+            },
+            { 
+                nombre: "ONU Medio Ambiente", 
+                imagen: "IMG/pag4img3.jpg", 
+                url: "https://www.unep.org",
+                descripcion: "Programa de las Naciones Unidas para el Medio Ambiente, enfocado en el desarrollo sostenible."
+            },
+            { 
+                nombre: "Ecologistas en Acción", 
+                imagen: "IMG/pag4img3.jpg", 
+                url: "https://www.ecologistasenaccion.org",
+                descripcion: "Confederación de grupos ecologistas que lucha por la justicia ambiental y social."
+            },
+            { 
+                nombre: "Acuerdo de Escazú", 
+                imagen: "IMG/pag4img4.jpg", 
+                url: "https://www.cepal.org/es/acuerdodeescazu",
+                descripcion: "Acuerdo internacional que promueve la protección ambiental y los derechos humanos."
+            }
+        ];
+
+        function cargarReferencias() {
+            const contenedor = document.getElementById("referencias-container");
+            contenedor.innerHTML = "";
+
+            referencias.forEach(ref => {
+                const tarjeta = document.createElement("div");
+                tarjeta.classList.add("tarjeta");
+
+                tarjeta.innerHTML = `
+                    <img src="${ref.imagen}" alt="${ref.nombre}">
+                    <h3>${ref.nombre}</h3>
+                    <p>${ref.descripcion}</p>
+                    <a href="${ref.url}" target="_blank">Visitar Sitio</a>
+                `;
+
+                contenedor.appendChild(tarjeta);
+            });
+        }
+
+        document.getElementById("buscador").addEventListener("input", function() {
+            const filtro = this.value.toLowerCase();
+            const contenedor = document.getElementById("referencias-container");
+            contenedor.innerHTML = "";
+
+            referencias
+                .filter(ref => ref.nombre.toLowerCase().includes(filtro))
+                .forEach(ref => {
+                    const tarjeta = document.createElement("div");
+                    tarjeta.classList.add("tarjeta");
+
+                    tarjeta.innerHTML = `
+                        <img src="${ref.imagen}" alt="${ref.nombre}">
+                        <h3>${ref.nombre}</h3>
+                        <p>${ref.descripcion}</p>
+                        <a href="${ref.url}" target="_blank">Visitar Sitio</a>
+                    `;
+
+                    contenedor.appendChild(tarjeta);
+                });
+        });
+
+        cargarReferencias();
+    </script>
+
+    <footer>
+        <p>Página web creada con fines educativos para la Universidad Tecnológica de Panamá.</p>
+    </footer>
+
+</body>
+</html>

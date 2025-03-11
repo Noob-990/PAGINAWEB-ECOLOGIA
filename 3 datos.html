@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia sobre el Extractivismo</title>
+    <link rel="stylesheet" href="5 styles.css">
+    <style>
+        .trivia {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .pregunta {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            background: #5ce6da;
+            color: black;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+            color: white;
+        }
+
+        .feedback {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="1 index.html">Inicio</a></li>
+                <li><a href="2 conceptos.html">Conceptos</a></li>
+                <li><a href="3 datos.html">Datos Curiosos</a></li>
+                <li><a href="4 noticias.html">Referencias</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="trivia">
+        <h1>Trivia sobre el Extractivismo</h1>
+
+        <div class="pregunta">
+            <p><strong>¿Cuál es el principal impacto del extractivismo?</strong></p>
+            <button onclick="verificarRespuesta(this, 'correcto')">A) Pérdida de biodiversidad</button>
+            <button onclick="verificarRespuesta(this, 'incorrecto')">B) Mejora del ecosistema</button>
+            <button onclick="verificarRespuesta(this, 'incorrecto')">C) Subir a platino</button>
+            <p class="feedback"></p>
+        </div>
+
+        <div class="pregunta">
+            <p><strong>¿Qué recurso es extraído en el extractivismo minero?</strong></p>
+            <button onclick="verificarRespuesta(this, 'correcto')">A) Minerales</button>
+            <button onclick="verificarRespuesta(this, 'incorrecto')">B) Petróleo</button>
+            <button onclick="verificarRespuesta(this, 'incorrecto')">C) Materia Gris</button>
+            <p class="feedback"></p>
+        </div>
+
+        <div class="pregunta">
+            <p><strong>¿Qué país es conocido por su fuerte modelo extractivista?</strong></p>
+            <button onclick="verificarRespuesta(this, 'correcto')">A) Brasil</button>
+            <button onclick="verificarRespuesta(this, 'incorrecto')">B) Perú</button>
+            <button onclick="verificarRespuesta(this, 'incorrecto')">C) Japón</button>
+            <p class="feedback"></p>
+        </div>
+
+        <div class="pregunta">
+            <p><strong>¿Qué alternativa al extractivismo se basa en la sostenibilidad?</strong></p>
+            <button onclick="verificarRespuesta(this, 'correcto')">A) Bioeconomía</button>
+            <button onclick="verificarRespuesta(this, 'incorrecto')">B) Sobreexplotación</button>
+            <button onclick="verificarRespuesta(this, 'incorrecto')">C) Urbanización acelerada</button>
+            <p class="feedback"></p>
+        </div>
+
+        <div class="pregunta">
+            <p><strong>¿Cuál de estos sectores NO es típicamente extractivista?</strong></p>
+            <button onclick="verificarRespuesta(this, 'incorrecto')">A) Pesca industrial</button>
+            <button onclick="verificarRespuesta(this, 'correcto')">B) Jugar LoL</button>
+            <button onclick="verificarRespuesta(this, 'incorrecto')">C) Explotación petrolera</button>
+            <p class="feedback"></p>
+        </div>
+
+        <div class="pregunta">
+            <p><strong>¿Qué tipo de extractivismo involucra procesamiento mínimo de recursos?</strong></p>
+            <button onclick="verificarRespuesta(this, 'incorrecto')">A) Primario</button>
+            <button onclick="verificarRespuesta(this, 'correcto')">B) Secundario</button>
+            <button onclick="verificarRespuesta(this, 'incorrecto')">C) Neoextractivismo</button>
+            <p class="feedback"></p>
+        </div>
+
+    </section>
+
+    <script>
+        function verificarRespuesta(boton, estado) {
+            let feedback = boton.parentElement.querySelector(".feedback");
+
+            if (estado === "correcto") {
+                feedback.textContent = "¡Correcto!";
+                feedback.style.color = "green";
+            } else {
+                feedback.textContent = "Incorrecto. Intenta de nuevo.";
+                feedback.style.color = "red";
+            }
+        }
+    </script>
+
+    <footer>
+        <p>PAGINA WEB CREADA CON FINES EDUCATIVOS PARA UNIVERSIDAD TECNOLOGICA DE PANAMÁ</p>
+    </footer>
+
+</body>
+</html>
